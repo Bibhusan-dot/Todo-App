@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    </head>
+
+    <body>
+        <h2>Todo App</h2>
+        <form method="post">
+            {%csrf_token%}
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Add your todo" required>
+                <button type="submit" name="add_task" class="add-btn">+</button>
+            </div>
+        </form>
+        {%for Todo in todos%}
+        <div class="task">
+            <div id="text-{{Todo.id}}" class="task-text">
+                {{Todo.name}}
+            </div>
+            <form method="post"
+                id="edit-{{Todo.id}}"
+                class="edit-form"
+                style="display: none;">
+                {%csrf_token%}
+                <input type="hidden" name="task_id" value="{{Todo.id}}">
+                <input type="text"
+                    name="new_name"
+                    value="{{Todo.name}}"
+                    class="edit-input"
+                    required>
+                <button type="submit"
+                    name="edit_task"
+                    class="btn btn-save">
+                    save
+                </button>
+            </form>
+            <div class="btn-group">
+                <button type="button"
+                    onclick="enableEdit('{{Todo.id}}')"
+                    class="btn btn-edit">
+                    ✏
+                </button>
+                <form method="post">
+                    {%csrf_token%}
+                    <input type="hidden" name="task_id" value="{{ Todo.id }}">
+                    <button type="submit"
+                        name="delete_task"
+                        class="btn btn-delete">
+                    🗑
+                    </button>
+                </form>
+            </div>
+        </div>
+        {%empty%}
+        <p>No tasks yet</p>
+        {%endfor%}
+        <div class="footer">
+            <form method="post">
+                {%csrf_token%}
+                <button type="submit"
+                    name="clear_all"
+                    class="clear-btn">
+                    Clear All
+                </button>
+            </form>
+        </div>
+        <script>
+            function enableEdit(id){
+                document.getElementById("text-"+id).style.display = "none";
+                document.getElementById("edit-"+id).style.display = "flex";
+            }
+        </script>
+    </body>
+</html>
