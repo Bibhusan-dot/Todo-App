@@ -9,7 +9,6 @@ certifi==2025.7.9
 cffi==2.0.0
 charset-normalizer==3.4.3
 click==8.1.7
-cockpit @ file:///builddir/build/BUILD/cockpit-369-build/cockpit-369/tmp/wheel/cockpit-369-py3-none-any.whl#sha256=5a8f5d89605a25ecbc41af2a8304948680f464596a4a5b3327501f2362f81f8a
 crypt_r==3.13.1
 cuda-bindings==12.9.4
 cuda-pathfinder==1.2.2
