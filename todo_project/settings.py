@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-3!ouoklht(3d4cyanmamkhsjb1b!u*@-58ap55x=985udlrs^3
 DEBUG = "FALSE"
 
 ALLOWED_HOSTS = [
-    'https://todo-app-4-4no0.onrender.com/',
+    'todo-app-4-4no0.onrender.com/',
 ]
 
 
