@@ -12,7 +12,11 @@ ALLOWED_HOSTS = [
     'todo-app-4-4no0.onrender.com/',
 ]
 
+RENDER_HOST = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_HOST:
+    ALLOWED_HOSTS.append(RENDER_HOST)
 
+CSRF_TRUSTED_ORIGINS = ["https://todo-app-4-4no0.onrender.com"]
 # Application definition
 
 INSTALLED_APPS = [
