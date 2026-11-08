@@ -8,15 +8,9 @@ SECRET_KEY = 'django-insecure-3!ouoklht(3d4cyanmamkhsjb1b!u*@-58ap55x=985udlrs^3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'todo-app-4-4no0.onrender.com/',
-]
+ALLOWED_HOSTS = [".onrender.com", "localhost", "127.0.0.1"]
 
-RENDER_HOST = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-if RENDER_HOST:
-    ALLOWED_HOSTS.append(RENDER_HOST)
-
-CSRF_TRUSTED_ORIGINS = ["https://todo-app-4-4no0.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
 # Application definition
 
 INSTALLED_APPS = [
